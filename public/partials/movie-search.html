@@ -1,0 +1,27 @@
+<div layout="row" layout-align="center">
+  <md-button class="main-btn" ng-click="movieSearchCtrl.showOverlay = true">Add new movie</md-button>
+</div>
+<div id="overlay" class="overlay" ng-show="movieSearchCtrl.showOverlay">
+  <a href="javascript:void(0)" class="closebtn" ng-click="movieSearchCtrl.showOverlay = false">×</a>
+  <div class="overlay-content" layout="column" layout-align="center center">
+    <h1 class="md-display-2">Search</h1>
+    <form class="form-horizontal row col-sm-8" id="searchForm" name="searchForm" ng-submit="movieSearchCtrl.onSubmit(movieSearchCtrl.searchtitle)">  
+      <md-content class = "main-search" layout="column" layout-padding>
+        <md-input-container class="md-block">
+            <input autocomplete="off" type="text" class = "search-input" ng-model="movieSearchCtrl.searchtitle" aria-label = "search for a movie input" autofocus>
+        </md-input-container>
+      </md-content>
+    </form>
+      <div ng-show="movieSearchCtrl.showError" class="alert-danger">
+        <p class="text-center">Oops! Something broke!</p>
+        <p class="text-center" ng-bind-html = 'movieSearchCtrl.errorMessage'></p>
+      </div>
+      <md-progress-linear ng-show="movieSearchCtrl.loading" class="search-progress" md-mode="indeterminate"></md-progress-linear>
+      <div class="searchResults" ng-show="movieSearchCtrl.searchResults" layout="row" layout-xs="column" layout-align="center" layout-wrap >
+        <div ng-repeat="result in movieSearchCtrl.searchResults | limitTo: movieSearchCtrl.limitToShow" flex="33"> 
+          <movie-card movie="result"></movie-card>
+        </div>
+        <md-button class="main-btn" ng-show="movieSearchCtrl.showMoreButton" ng-click="movieSearchCtrl.limitToShowInc()">More Results</md-button>
+      </div>
+  </div>
+</div>

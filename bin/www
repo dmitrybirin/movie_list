@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+var app = require('./../index');
+
+var port = 8000;
+app.listen(port, function(){
+    console.log(`I'm listening to the port ${port}`);
+});

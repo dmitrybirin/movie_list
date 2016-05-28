@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+        <title>Movie List</title>
+        <link rel="stylesheet" href="css/angular-material.min.css">
+        <link rel="stylesheet" href="css/custom.css">  
+    </head>
+    <body ng-app="MovieList" ng-controller="MainController as mainCtrl" ng-cloak>
+            <h1 class="md-display-3" layout="row" layout-align="center center">Movie List</h1>
+            <!--<hr />-->
+        <movie-search></movie-search>
+            <div class ="movieList" layout="row" layout-xs="column" layout-align="center" layout-wrap>
+                <movie-card movie="item" ng-repeat="item in mainCtrl.movieList" flex="33"></movie-card>
+            </div>
+        <footer>
+        </footer>
+        <!--Vendor JavaScript-->
+        <script src="js/vendor/jquery-1.12.0.min.js"></script>    
+        <script src="js/vendor/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/vendor/angular-1.5.0.min.js" type="text/javascript"></script>
+        <script src="js/vendor/angular-animate.min.js" type="text/javascript"></script>
+        <script src="js/vendor/angular-aria.min.js" type="text/javascript"></script>
+        <script src="js/vendor/angular-messages.min.js" type="text/javascript"></script>
+        <script src="js/vendor/angular-material.min.js" type="text/javascript"></script>
+        <!--Main JavaScript-->
+        <script src="js/app.js" type="text/javascript"></script>
+        <!--Controllers-->
+        <script src="js/controllers/MainController.js" type="text/javascript"></script>
+        <!--Directives-->    
+        <script src="js/directives/movieGenresDirective.js" type="text/javascript"></script>
+        <script src="js/directives/posterDirective.js" type="text/javascript"></script>
+        <script src="js/directives/reviewFormDirective.js" type="text/javascript"></script>
+        <script src="js/directives/movieSearchDirective.js" type="text/javascript"></script>
+        <script src="js/directives/movieCardDirective.js" type="text/javascript"></script>
+        <!--Services-->
+        <script src="js/services/UserFactory.js" type="text/javascript"></script>
+        <script src="js/services/MovieFactory.js" type="text/javascript"></script>
+        <script src="js/services/GetMovieListFactory.js" type="text/javascript"></script>
+        <script src="js/services/GetPosterFactory.js" type="text/javascript"></script>
+	</body>
+</html>
+
+
+

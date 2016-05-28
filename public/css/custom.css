@@ -1,0 +1,213 @@
+.btn-wrap {
+  padding-bottom: 20px;
+}
+
+.btn-wrap button {
+  width: 150px;
+}
+
+.btn-wrap .save-btn {
+  color : rgb(49, 46, 46);
+  background-color: rgba(25, 64, 255, 0.80);
+  border-radius: 0 10px 10px 0;
+  font-size: 16px;
+}
+
+.btn-wrap .main-btn {
+  color : rgb(49, 46, 46);
+  background-color: rgba(255, 222, 121, 0.96);
+  border-radius: 10px 0 0 10px;
+  font-size: 16px;
+}
+
+.btn-wrap .save-btn:not([disabled]):hover {
+  color : rgb(49, 46, 46);
+  background-color: rgba(10, 42, 231, 0.80);
+  color: white;
+}
+
+.btn-wrap .main-btn:not([disabled]):hover {
+  background-color: rgba(240, 200, 98, 0.96);
+  color: white;
+}
+.btn-wrap button[disabled] {
+  color : rgb(187, 187, 187);
+  background-color: rgba(230, 230, 229, 0.96);
+}
+
+.poster img {
+  width: 200px;
+}
+
+.movie-list {
+  width: 100%;
+}
+
+.spinner {
+  margin: 0 auto;
+}
+
+.search-progress {
+  margin: 0 auto;
+  width: 80%; 
+}
+
+.live-preview .poster {
+  width:30px;
+}
+
+li.book > aside p.rating {
+  color: #7A292A;
+  font-size: 1.2em;
+}
+
+.book .rating.goodRating {
+  color: #499130;
+}
+
+.live-preview {
+  float: right;
+  width: 48%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.live-preview .spinner {
+  margin: 0 auto;
+}
+
+.live-preview h2 {
+  width: 100%
+}
+
+.live-preview #review {
+  word-break: break-all;
+}
+
+.live-preview > aside, li.book > aside {
+  padding: 0;
+}
+
+.input-container {
+  float: left;
+  width: 48%;
+}
+
+form[name="reviewForm"] md-content .md-block{
+  margin: 0;
+  padding: 0;
+}
+
+.selects md-input-container {
+    width: 100%;
+}
+
+div.movieList movie-card md-card {
+  min-height: 270px;
+}
+
+.movieList movie-card md-card {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+md-card-title {
+  max-height: 120px;
+}
+
+.movie-list .poster-wrap {
+  height: 330px;
+  width: 200px;
+}
+
+md-card .poster img {
+  border-radius: 5px;
+}
+
+md-card movie-genres .genres {
+  margin-top:5px;
+}
+md-card movie-genres .genres li {
+  margin-top:5px;
+}
+
+md-card .director {
+  margin-left: 10px;
+  font-style: italic;
+}
+
+md-card .md-chips .md-chip {
+  font-size: 15px; 
+  border-radius: 5px;
+  color: white;
+  background-color: deepskyblue;
+  height: 20px;
+  line-height: 20px;
+}
+
+
+/*OVERLAY*/
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(255,255,255, 0.95);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay md-content{
+  background-color: rgba(255,255,255, 0);
+}
+
+.overlay-content {
+  position: relative;
+  top: 15%;
+  width: 100%;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px !important;
+}
+
+.overlay .md-input.search-input {
+  height: 65px;
+  font-size: 50px;
+  border-width: 0px;
+}
+
+.overlay .searchResults {
+  width: 100%;
+}
+
+
+
+/*
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .closebtn {
+    font-size: 40px !important;
+    top: 15px;
+    right: 35px;
+  }
+}*/

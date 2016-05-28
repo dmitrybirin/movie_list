@@ -1,0 +1,22 @@
+{
+  "name": "movie-title-server",
+  "version": "1.0.0",
+  "description": "test node server for the movie-title",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha tests.js",
+    "start": "node bin/www"
+  },
+  "author": "Dmitry Birin",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongodb": "^2.1.20",
+    "request": "^2.71.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
+  }
+}

@@ -1,0 +1,6 @@
+<div class="row poster-wrap center-block" >
+    <a class="poster" href="http://www.imdb.com/title/{{movie.imdb_id}}">
+        <md-progress-circular class="spinner" md-diameter="100" md-mode="indeterminate" ng-show="movie.posterLoading"></md-progress-circular>
+        <img  class = "md-whiteframe-6dp" ng-src="{{movie.posterPath}}" alt = "poster of {{movie.title}}" ng-show="!movie.posterLoading">
+    </a>
+</div>

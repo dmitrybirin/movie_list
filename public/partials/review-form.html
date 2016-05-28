@@ -1,0 +1,99 @@
+
+<form class="form-horizontal" id="reviewForm" name="reviewForm" ng-submit="reviewFormCtrl.saveReview(reviewForm)">
+    <div class = "btn-wrap" layout="row" layout-align="start center">
+        <md-button class="main-btn" ng-click="reviewFormCtrl.showForm = !reviewFormCtrl.showForm">{{reviewFormCtrl.showForm ? "Cancel" : "Add New Movie"}}</md-button>
+        <md-button class="save-btn" type="submit" form="reviewForm" ng-show="reviewFormCtrl.showForm" >Save Review</md-button>
+    </div>
+    <div ng-show="reviewFormCtrl.showForm">
+    <section class="row well live-preview">
+        <p class="row text-center">Live Preview</p>
+        <aside class="col-sm-5">
+            <a class="poster" href="http://www.imdb.com/title/{{reviewFormCtrl.movie.imdb_id}}" ng-show="reviewFormCtrl.movie.imdb_id">
+                <span layout-align="space-around" ng-show="reviewFormCtrl.movie.posterLoading">
+                    <md-progress-circular class="spinner" md-diameter="100" md-mode="indeterminate"></md-progress-circular>
+                </span>
+                <img ng-src="{{reviewFormCtrl.movie.posterPath}}" alt = "poster of {{reviewFormCtrl.movie.title}}" ng-show="!reviewFormCtrl.movie.posterLoading">
+            </a>
+        </aside>
+
+        <div class="col-sm-7">
+        <h2>
+            <a href="http://www.amazon.com/gp/product/{{reviewFormCtrl.book.isbn}}">
+            {{reviewFormCtrl.movie.title || "Title of the Movie"}}
+            </a>
+        </h2>
+        <cite class="text-muted">Directed by {{reviewFormCtrl.movie.director || "Director's Name"}}</cite>
+        <p>Rating: {{reviewFormCtrl.movie.rating || '0'}}/5</p>
+        <p id="review">{{reviewFormCtrl.movie.review || "No review yet."}}</p>
+
+        <ul class="list-unstyled list-inline">
+            <li ng-repeat="genre in reviewFormCtrl.movie.genres">
+            <span class="label label-info">{{genre}}</span>
+            </li>
+        </ul>
+        </div>
+    </section>
+
+    <md-content class = "row" layout="column" layout-padding>
+        <span class="col-sm-9">
+            <md-input-container class="md-block">
+                <label for="title" >Title (required)</label>
+                <input type="text" id="title" ng-model="reviewFormCtrl.movie.title" required>
+            </md-input-container>
+        </span>
+        <span class="col-sm-9">
+            <md-input-container class="md-block">
+                <label for="imdb_id">IMDB ID</label>
+                <input name = "imdb_id" type="text" id="imdb_id" ng-model = "reviewFormCtrl.movie.imdb_id" ng-change="reviewFormCtrl.getPoster(reviewFormCtrl.movie.imdb_id)"
+                maxLength="9" >
+                <!--<div class="hint" ng-show="reviewFormCtrl.showHints">tt1234567</div>
+                <div ng-messages="reviewForm.imdb_id.$error" ng-show="!reviewFormCtrl.showHints">
+                <div ng-message="pattern">tt1234567 - Please enter a valid IMDB ID</div>-->
+            </md-input-container>
+        </span>
+
+        <span class="col-sm-9">
+            <md-input-container class="md-block">
+                <label for="Director">Director</label>
+                <input type="text" aria-label="Director" id="Director" ng-model="reviewFormCtrl.movie.director">
+            </md-input-container>
+        </span>
+        
+        <span class="col-sm-9">
+            <md-input-container class="md-block">
+                <label for="cast">Cast</label>
+                <input type="text" aria-label="cast" id="cast" ng-model="reviewFormCtrl.movie.director">
+            </md-input-container>
+        </span>
+        
+        <span class="col-sm-9">
+            <md-input-container class="md-block">
+                <label for="review">Movie Review</label>
+                    <textarea id="review" cols="30" rows="3" ng-model="reviewFormCtrl.movie.review">
+                    </textarea>
+            </md-input-container>
+        </span>
+
+        <div class="selects md-block">
+        <span class="col-sm-4">
+            <md-input-container>
+                   <md-select class="genre" placeholder = "Genre" multiple = "true" ng-model="reviewFormCtrl.movie.genres" >
+                       <md-option ng-repeat="genre in genres"  ng-value="genre">{{genre}}</md-option>
+                   </md-select>
+            </md-input-container>
+        </span>
+        <span class="col-sm-4 col-sm-offset-1">
+            <md-input-container>
+                <md-select placeholder = "Rating" id="rating" ng-model="reviewFormCtrl.movie.rating">
+                    <md-option>5</md-option>
+                    <md-option>4</md-option>
+                    <md-option>3</md-option>
+                    <md-option>2</md-option>
+                    <md-option>1</md-option>
+                </md-select>
+            </md-input-container>
+        </span>
+        </div>
+    </md-content>
+    </div>
+</form>

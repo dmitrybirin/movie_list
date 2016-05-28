@@ -1,0 +1,3 @@
+exports.unAuthMessage = "The app should use the valid API key. \nYou can get one here: https://www.themoviedb.org/documentation/api";
+exports.connectionIssueMessage = 'Has problem to get TMDB response.\nPlease, check your internet connection';
+exports.wrongResponseFormatMessage = 'Response from TMDB is in wrong format.<br>There is a possibility, that your internet provider needs additional information from you.<br>Try to get redirect by the link http://google.ru or try again later.';

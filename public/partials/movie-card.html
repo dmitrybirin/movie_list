@@ -1,0 +1,23 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline text-center">{{movie.title}}</span>
+            <span class="md-subhead director">{{movie.director.length !== 0 ? "Directed by" : "Director's name not available"}}
+                <span ng-repeat="director in movie.director | limitTo:2">{{director.name}}</span>
+            </span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content layout="row" layout-align="space-between">
+        <div flex="70">
+            <poster movie="movie"></poster>
+            <md-chips ng-model="movie.genres" readonly="true"></md-chips>
+        </div>
+        <div flex="30">
+            <p><b>{{movie.cast.length !== 0 ? "Starring" : "Cast is not available"}}</b><br><br>
+                <span class="cast" ng-repeat="person in movie.cast | limitTo:3">{{person.name}}<span>
+            </p>
+            <md-button class="main-btn" ng-show="!movie.added" ng-click="cardCtrl.addToList(movie)">Add to List</md-button>
+            <md-button class="warn-btn" ng-show="movie.added" ng-click="cardCtrl.deleteFromList(movie.imdb_id)">Delete</md-button>
+        </div>
+    </md-card-content>
+</md-card>
